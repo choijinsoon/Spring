@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns:th="http://wwww.thymleaf.org">
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='../css/reset.css'>
+    <!-- <link rel='stylesheet' type='text/css' media='screen' href='../css/style.css'> -->
+
+    <link rel='stylesheet' type='text/css' media='screen' href='../css/menu-component.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='../css/icon.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='../css/form.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='../css/button.css'>
+
+    <!-- <link rel='stylesheet' type='text/css' media='screen' href='../css/menu/list.css'> -->
+
+    <!-- <link rel='stylesheet' type='text/css' media='screen' href='../css/utils.css'> -->
+
+    <script src='main.js'></script>
+</head>
+<body>
+    <section class="menu-section">
+        <h1 th:text="${data}">메뉴 목록</h1>
+        <div class="menu-list">
+            <section class="menu">
+                <form action="" class="">
+                    <h1>알랜드 커피</h1>    
+                    <div class="menu-img-box">
+                        <img class="menu-img" src="../image1/8.png" alt="">
+                    </div>
+                    <div class="menu-price">4500원</div>
+                    <div class="menu-option-list">
+                        <span class="menu-option">
+                            <input class="menu-option-input" type="checkbox" name="iced" id="iced">
+                            <label for="iced">Iced</label>
+                        </span>
+                        <span class="menu-option">
+                            <input class="menu-option-input" type="checkbox" name="large" id="large">
+                            <label for="large">Large</label>
+                        </span>
+                    </div>
+                    <div class="menu-button-list">
+                        <input class="btn btn-default btn-default-line" type="submit" value="담기">
+                        <input class="btn btn-default btn-default-fill" type="submit" value="구매">          
+                    </div>
+                </form>
+            </section>
+            <section class="menu">
+                <form action="" class="">
+                    <h1>알랜드 커피</h1>     
+                    <div class="menu-img-box">
+                        <img class="menu-img" src="../image1/8.png" alt="">
+                    </div>
+                    <div class="menu-price">4500원</div>
+                    <div class="menu-option-list">
+                        <span class="menu-option">
+                            <input class="menu-option-input" type="checkbox" name="iced" id="iced">
+                            <label for="iced">Iced</label>
+                        </span>
+                        <span class="menu-option">
+                            <input class="menu-option-input" type="checkbox" name="large" id="large">
+                            <label for="large">Large</label>
+                        </span>
+                    </div>
+                    <div class="menu-button-list">
+                        <input class="btn btn-default btn-default-line" type="submit" value="담기">
+                        <input class="btn btn-default btn-default-fill" type="submit" value="구매">          
+                    </div>
+                </form>
+            </section>
+            <section class="menu">
+                <form action="" class="">
+                    <h1>알랜드 커피</h1>  
+                    <div class="menu-img-box">
+                        <img class="menu-img" src="../image1/8.png" alt="">
+                    </div>
+                    <div class="menu-price">4500원</div>
+                    <div class="menu-option-list">
+                        <span class="menu-option">
+                            <input class="menu-option-input" type="checkbox" name="iced" id="iced">
+                            <label for="iced">Iced</label>
+                        </span>
+                        <span class="menu-option">
+                            <input class="menu-option-input" type="checkbox" name="large" id="large">
+                            <label for="large">Large</label>
+                        </span>
+                    </div>
+                    <div class="menu-button-list">
+                        <input class="btn btn-default btn-default-line" type="submit" value="담기">
+                        <input class="btn btn-default btn-default-fill" type="submit" value="구매">          
+                    </div>
+                </form>
+            </section>
+        </div>
+    </section>
+
+</body>
+</html>
