@@ -10,16 +10,22 @@ import com.newlecture.web.entity.Menu;
 @Mapper
 public interface MenuDao {
 	
+	//메뉴 검색
 	//'%'name'%'
 	//@Select("select * from Menu where name like '%#{query}%'")
 	//'%name%'
 	//@Select("select * from Menu where name like '%${query}%'")
-	List<Menu> getList(String query);
+	List<Menu> getList(
+			int page, 
+			String field,
+			String query);
 	
-	Menu get();
-	int count();
+	//한가지 메뉴 검색
+	Menu get(int id);
+	//검색 수 출력
+	int count(String query);
 	
-	int insert();
-	int update();
-	int delete();
+	int insert(Menu menu);
+	int update(Menu menu);
+	int delete(int id);
 }

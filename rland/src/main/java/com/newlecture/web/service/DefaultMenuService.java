@@ -12,6 +12,7 @@ import com.newlecture.web.entity.Menu;
 @Service
 public class DefaultMenuService implements MenuService{
 
+	@Autowired
 	private MenuDao menuDao;
 	
 	public DefaultMenuService() {
@@ -22,7 +23,6 @@ public class DefaultMenuService implements MenuService{
 		this.menuDao = menuDao;
 	}
 
-	@Autowired
 	public void setMenuDao(MenuDao menuDao) {
 		this.menuDao = menuDao;
 	}

@@ -11,7 +11,8 @@ import com.newlecture.web.service.MenuService;
 @Controller
 @RequestMapping("/menu")
 public class MenuController {
-	
+
+	@Autowired
 	private MenuService service;
 	
 	public MenuController() {
@@ -22,7 +23,6 @@ public class MenuController {
 		this.service = service;
 	}
 
-   @Autowired
 	public void setService(MenuService service) {
 		this.service = service;
 	}
