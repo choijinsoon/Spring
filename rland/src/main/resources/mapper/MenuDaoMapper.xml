@@ -14,7 +14,7 @@
 		limit #{(page-1)*10}, 10
 	</select>
 	<select id="get" resultType="com.newlecture.web.entity.Menu">
-		select * from Menu 
+		select * from Menu  
 		where id = #{id}
 	</select>
 	<select id="count" resultType="int">
