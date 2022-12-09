@@ -16,7 +16,8 @@ public interface MenuDao {
 	//'%name%'
 	//@Select("select * from Menu where name like '%${query}%'")
 	List<Menu> getList(
-			int page, 
+			int offset,
+			int size,
 			String field,
 			String query);
 	

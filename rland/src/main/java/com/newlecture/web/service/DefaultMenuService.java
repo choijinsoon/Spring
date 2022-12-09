@@ -29,7 +29,7 @@ public class DefaultMenuService implements MenuService{
 
 	@Override
 	public List<Menu> getList() {
-		List<Menu> list = menuDao.getList("아");
+		List<Menu> list = menuDao.getList(0, 10, "name", "아");
 		System.out.println(list);
 		
 		return list;

@@ -11,7 +11,7 @@
 			</if>
 			and price > 4000
 		</trim>
-		limit #{(page-1)*10}, 10
+		limit #{offset}, #{size}
 	</select>
 	<select id="get" resultType="com.newlecture.web.entity.Menu">
 		select * from Menu  
@@ -29,7 +29,7 @@
 		update Menu 
 		<set>
 			<if test="name != null">name=#{name},</if>
-			<if test="price != null">price=#{price},</if>
+			<if test="price != null">price=${price},</if>
 			<if test="img != null">img=#{img}</if>
 		</set>
 		where id = #{id}
