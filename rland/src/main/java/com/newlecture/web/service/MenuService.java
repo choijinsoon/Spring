@@ -7,4 +7,6 @@ import com.newlecture.web.entity.Menu;
 public interface MenuService {
    List<Menu> getList();
    int addToBasket(int id);
+   
+   void testTS();
 }

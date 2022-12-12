@@ -26,6 +26,10 @@ public interface MenuDao {
 	//검색 수 출력
 	int count(String query);
 	
+//	insert의 경우는 삽입된 행의 개수를 반환
+//	update의 경우는 수정에 성공한 행의 개수를 반환(실패시 0 반환)
+//	delete의 경우는 삭제한 행의 개수를 반환(실패시 0 반환)
+	
 	int insert(Menu menu);
 	int update(Menu menu);
 	int delete(int id);

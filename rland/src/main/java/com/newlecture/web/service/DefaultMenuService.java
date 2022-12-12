@@ -30,7 +30,6 @@ public class DefaultMenuService implements MenuService{
 	@Override
 	public List<Menu> getList() {
 		List<Menu> list = menuDao.getList(0, 10, "name", "아");
-		System.out.println(list);
 		
 		return list;
 	}
@@ -39,6 +38,16 @@ public class DefaultMenuService implements MenuService{
 	public int addToBasket(int id) {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+	
+	@Override
+	public void testTS() {
+		Menu menu = menuDao.get(3);
+		menu.setPrice(menu.getPrice()-500);
+		menuDao.update(menu);
+		
+		menu.setPrice(menu.getPrice()-500);
+		menuDao.update(menu);
 	}
 
 }
