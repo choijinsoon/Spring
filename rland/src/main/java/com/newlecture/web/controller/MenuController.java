@@ -30,8 +30,10 @@ public class MenuController {
    @GetMapping("/list")
    public String list(Model model) {
       
-      model.addAttribute("data", "hello");
-      service.getList();
+	   service.testTS();
+	   
+//      model.addAttribute("data", "hello");
+//      service.getList();
       
       return "menu/list";
    }

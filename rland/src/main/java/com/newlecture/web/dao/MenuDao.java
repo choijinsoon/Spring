@@ -32,5 +32,8 @@ public interface MenuDao {
 	
 	int insert(Menu menu);
 	int update(Menu menu);
+	int updateAll(Menu[] menus);
+	
 	int delete(int id);
+	int deleteAll(int[] ids);
 }

@@ -3,8 +3,9 @@ package com.newlecture.web.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.newlecture.web.dao.MenuDao;
 import com.newlecture.web.entity.Menu;
@@ -40,13 +41,14 @@ public class DefaultMenuService implements MenuService{
 		return 0;
 	}
 	
+//	@Transactional(isolation = Isolation.READ_UNCOMMITTED)
 	@Override
 	public void testTS() {
-		Menu menu = menuDao.get(3);
+		Menu menu = menuDao.get(13);
 		menu.setPrice(menu.getPrice()-500);
 		menuDao.update(menu);
 		
-		menu.setPrice(menu.getPrice()-500);
+		menu.setPrice(menu.getPrice()-50000);
 		menuDao.update(menu);
 	}
 
