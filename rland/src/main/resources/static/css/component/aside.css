@@ -1,0 +1,67 @@
+/*----------------------
+	/aside
+------------------------*/
+/* 
+.header .main-menu.main-menu-show{
+    display: flex !important;
+}
+.header .main-menu.main-menu-show li{
+    
+}
+.header .main-menu.main-menu-show::before{
+    display: block;
+    content: '';
+    background-color: #000c;    
+    position: fixed;
+    left:0;
+    top: 0;
+    width:100vw;
+    height: 100vh;
+
+}
+.header .main-menu.main-menu-show::after{
+    position: fixed;
+    content: '';
+    right: 0;
+    top:0;
+    width:70%;
+    height: 100vh;
+    background-color: #fff;
+} */
+
+.aside-bar::before{
+    display: block;
+    content: '';
+    background-color: #000c;    
+    position: fixed;
+    left:0;
+    top: 0;
+    width:100vw;
+    height: 100vh;
+
+}
+
+.aside-bar-content {    
+    
+    position: fixed;    
+    right: 0px;
+    top:0px;
+    width:70%;
+    height: 100vh;
+    box-sizing: border-box;
+    
+    background-color: #fff;
+    padding: 20px;
+
+	z-index: 1000;
+}
+
+.aside-bar-menu-list{
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.aside-bar-menu-list>li{
+    margin-top: 5px;
+}
+

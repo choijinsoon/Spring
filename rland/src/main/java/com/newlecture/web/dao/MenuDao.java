@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.newlecture.web.entity.Menu;
 
@@ -31,6 +33,8 @@ public interface MenuDao {
 //	delete의 경우는 삭제한 행의 개수를 반환(실패시 0 반환)
 	
 	int insert(Menu menu);
+	
+	@Transactional(propagation = Propagation.MANDATORY)
 	int update(Menu menu);
 	int updateAll(Menu[] menus);
 	

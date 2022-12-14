@@ -1,0 +1,84 @@
+.btn{
+  /* 모든 버튼의 공통스타일 */
+  padding: .4em .8em;    
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color .5s;
+
+
+}
+
+.btn-default{
+  border-radius: 20px;
+  border: 1px solid #A24F17;
+  background-color: #A24F17;
+}
+
+.btn-cancel{
+  border-radius: 20px;
+  border: 1px solid #A24F17;
+  background-color: #fff;
+  color:#000;
+}
+
+.btn-leaf {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+  color: #fff;
+  line-height: 25px;
+  padding: 3px 14px;
+  background-color: #D68814;
+  border-radius: 10px 0 10px 0;
+}
+
+.btn-block-link {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  color: #fff;
+  line-height: 40px;
+  background-color: rgba(110, 152, 9, 0.65);
+  box-sizing: border-box;
+  width: 173px;
+  height: 40px;
+}
+
+/* --- utils ----------------- */
+.btn-size-1{
+  min-width: 80px;
+}
+
+@media (min-width: 768px) {
+  .btn-default-md{
+      border-radius: 0px;
+      font-size: 17px;
+  }
+
+  .btn-cancel-md{
+      border-radius: 0px;
+      font-size: 17px;
+  }
+
+/* --- utils ----------------- */
+  
+}
+
+@media all and (min-width:1000px) {
+  .btn-default-lg{
+      border-radius: 0px;
+      
+  }
+
+  .btn-cancel-lg{
+      border-radius: 0px;
+      
+  }
+
+  /* --- utils ----------------- */
+  .btn-size-1-lg{
+    min-width: 100px;
+  }
+}

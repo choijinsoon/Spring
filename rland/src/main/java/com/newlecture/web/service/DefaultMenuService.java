@@ -41,7 +41,7 @@ public class DefaultMenuService implements MenuService{
 		return 0;
 	}
 	
-//	@Transactional(isolation = Isolation.READ_UNCOMMITTED)
+	@Transactional(isolation = Isolation.READ_UNCOMMITTED)
 	@Override
 	public void testTS() {
 		Menu menu = menuDao.get(13);
