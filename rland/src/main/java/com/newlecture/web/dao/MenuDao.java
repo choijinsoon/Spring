@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Select;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.newlecture.web.entity.Cart;
 import com.newlecture.web.entity.Menu;
 
 @Mapper
@@ -16,12 +17,14 @@ public interface MenuDao {
 	//'%'name'%'
 	//@Select("select * from Menu where name like '%#{query}%'")
 	//'%name%'
-	//@Select("select * from Menu where name like '%${query}%'")
-	List<Menu> getList(
-			int offset,
-			int size,
-			String field,
-			String query);
+//	//@Select("select * from Menu where name like '%${query}%'")
+//	List<Menu> getList(
+//			int offset,
+//			int size,
+//			String field,
+//			String query);
+	List<Menu> getList();
+	List<Menu> getList(int offset, int size);
 	
 	//한가지 메뉴 검색
 	Menu get(int id);
@@ -40,4 +43,7 @@ public interface MenuDao {
 	
 	int delete(int id);
 	int deleteAll(int[] ids);
+	void add();
+	void add(Cart cart);
+
 }
