@@ -3,7 +3,11 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.newlecture.web.dao.MenuDao">
-	<select id="getList" resultType="com.newlecture.web.entity.Menu">
+	<select id="getList" resultType="Menu">
+		select * from Menu
+		limit #{offset}, #{size}
+	</select>
+	<select id="getList1" resultType="Menu">
 		select * from Menu 
 		<trim prefix="WHERE" prefixOverrides="AND | OR">
 			<if test="field != null">
@@ -13,7 +17,7 @@
 		</trim>
 		limit #{offset}, #{size}
 	</select>
-	<select id="get" resultType="com.newlecture.web.entity.Menu">
+	<select id="get" resultType="Menu">
 		select * from Menu  
 		where id = #{id}
 	</select>
@@ -21,11 +25,11 @@
 		select count(id) from Menu 
 		where name like '%${query}%'
 	</select>
-	<insert id="insert" parameterType="com.newlecture.web.entity.Menu">
+	<insert id="insert" parameterType="Menu">
 		insert into Menu(name, price, img) 
 		values(#{name}, ${price}, #{img});
 	</insert>
-	<update id="update" parameterType="com.newlecture.web.entity.Menu">
+	<update id="update" parameterType="Menu">
 		update Menu 
 		<set>
 			<if test="name != null">name=#{name},</if>
