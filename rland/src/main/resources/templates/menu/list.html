@@ -23,7 +23,7 @@
 						<a href="/menu/list">전체</a>
 					</li>
 					<li>
-						<a href="">커피음료</a>
+						<a href="" th:text="${session.test}">커피음료</a>
 					</li>
 					<li>
 						<a href="">수제청</a>
@@ -50,7 +50,7 @@
 		                <form class="" action="list" method="post">
 		                    <h1 th:text="${menu.name}">알랜드 커피</h1> 
 		                    <div class="menu-img-box">
-		                        <a href="detail" th:href="detail"><img class="menu-img" src="/image/product/12.png"></a>
+		                        <a href="detail.html" th:href="${menu.id}"><img class="menu-img" src="/image/product/12.png" th:src="${menu.img}"></a>
 		                    </div>    
 		                    <div class="menu-price" th:text="${menu.price}">4500 원</div>
 		                    <div class="menu-option-list">

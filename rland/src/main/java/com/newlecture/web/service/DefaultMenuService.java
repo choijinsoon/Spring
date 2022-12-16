@@ -75,6 +75,11 @@ public class DefaultMenuService implements MenuService{
 
 		return cartDao.count(memberId); 
 	}
+
+	@Override
+	public Menu get(int id) {
+		return menuDao.get(id);
+	}
 	
 
 }

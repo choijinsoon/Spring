@@ -13,5 +13,7 @@ public interface MenuService {
    int addToBasket(int id);
    
    void testTS();
+   
    int countOfMenuInCart(int memberId);
+   Menu get(int id);
 }
