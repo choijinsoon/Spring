@@ -1,94 +1,98 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
-	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
 	layout:decorate="inc/layout">
 
-    <!-- ---------------------------------------------------------------------- -->   
-	<main layout:fragment="content">
-		<section>
-			<header class="search-header">
-				<h1 class="text-title1-h1">알랜드 메뉴</h1>
-				<form>
-					<input type="text">
-					<input type="submit" class="icon icon-find">
-				</form>
-			</header>
+<!-- ---------------------------------------------------------------------- -->
+<main layout:fragment="content">
+	<script src="/js/menu/list.js" defer></script>
+	<section>
+		<header class="search-header">
+			<h1 class="text-title1-h1">알랜드 메뉴</h1>
+			<form>
+				<input type="text">
+				<input type="submit" class="icon icon-find">
+			</form>
+		</header>
 
-			<nav class="menu-category">
-				<div>
-					<h1 class="text-normal-bold">메뉴분류</h1>
-				</div>
-				<ul>
-					<li class="menu-selected">
-						<a href="/menu/list">전체</a>
-					</li>
-					<li>
-						<a href="" th:text="${session.test}">커피음료</a>
-					</li>
-					<li>
-						<a href="">수제청</a>
-					</li>
-					<li>
-						<a href="">샌드위치</a>
-					</li>
-					<li>
-						<a href="">쿠키</a>
-					</li>
-				</ul>
-			</nav>
-
-			<section class="cart-section">
-				<h1 class="d-none">장바구니</h1>
-				<span class="text-title3">커피음료</span>
-				<div class="icon icon-basket icon-text" th:text="${countInCart}">1</div>
-			</section>
-
-			<section class="menu-section">
-		        <h1 class="d-none">메뉴목록</h1>
-		        <div class="menu-list">
-		            <section class="menu" th:each="menu:${list}">
-		                <form class="" action="list" method="post">
-		                    <h1 th:text="${menu.name}">알랜드 커피</h1> 
-		                    <div class="menu-img-box">
-		                        <a href="detail.html" th:href="${menu.id}"><img class="menu-img" src="/image/product/12.png" th:src="${menu.img}"></a>
-		                    </div>    
-		                    <div class="menu-price" th:text="${menu.price}">4500 원</div>
-		                    <div class="menu-option-list">
-		                        <span class="menu-option">
-		                            <input class="menu-option-input" type="checkbox" name="ice" value="true">
-		                            <label>ICED</label>
-		                        </span>            
-		                        <span class="menu-option ml-2">
-		                            <input class="menu-option-input" type="checkbox"  name="large" value="true">
-		                            <label>Large</label>
-		                        </span>
-		                    </div>
-		                    <div class="menu-button-list">
-		                    	<input type="hidden" name="menu-id" th:value="${menu.id}">
-		                        <input class="btn btn-cancel btn-cancel-lg btn-size-1 btn-size-1-lg" type="submit" name="cmd" value="담기">
-		                        <input class="btn btn-default btn-default-lg btn-size-1 btn-size-1-lg ml-1" type="submit" name="cmd" value="주문하기">
-		                    </div>
-		                </form>
-		            </section>
-		        </div>
-		    </section>
-
-			<div class="d-flex justify-content-center">
-				<a href="?p=2" class="btn btn-next">더보기(13+)</a>
+		<nav class="menu-category">
+			<div>
+				<h1 class="text-normal-bold">메뉴분류</h1>
 			</div>
+			<ul>
+				<li class="menu-selected" th:class="${param.c}">
+					<a href="/menu/list">전체</a>
+				</li>
+				<li th:class="${#strings.equals(param.c,'1')}">
+					<a href="" th:text="${session.test}">커피음료</a>
+				</li>
+				<li>
+					<a href="">수제청</a>
+				</li>
+				<li>
+					<a href="">샌드위치</a>
+				</li>
+				<li>
+					<a href="">쿠키</a>
+				</li>
+			</ul>
+		</nav>
 
-			<section class="new-menu menu-section-p">
-				<h1 class="d-none">신메뉴 목록</h1>
-				<!-- <ul>
+		<section class="cart-section">
+			<h1 class="d-none">장바구니</h1>
+			<span class="text-title3">커피음료</span>
+			<div class="icon icon-basket icon-text" th:text="${countInCart}">1</div>
+		</section>
+
+		<section class="menu-section">
+			<h1 class="d-none">메뉴목록</h1>
+			<div class="menu-list">
+				<section class="menu" th:each="menu:${list}">
+					<form class="" action="list" method="post">
+						<h1 th:text="${menu.name}">알랜드 커피</h1>
+						<div class="menu-img-box">
+							<a href="detail.html" th:href="${menu.id}"><img class="menu-img" src="/image/product/12.png"
+									th:src="${menu.img}"></a>
+						</div>
+						<div th:text="${#dates.format(menu.regDate, 'yyyy-MM-dd HH:mm')}"></div>
+						<div class="menu-price" th:text="${menu.price}+' 원'">4500 원</div>
+						<div class="menu-option-list">
+							<span class="menu-option">
+								<input class="menu-option-input" type="checkbox" name="ice" value="true">
+								<label>ICED</label>
+							</span>
+							<span class="menu-option ml-2">
+								<input class="menu-option-input" type="checkbox" name="large" value="true">
+								<label>Large</label>
+							</span>
+						</div>
+						<div class="menu-button-list">
+							<input type="hidden" name="menu-id" th:value="${menu.id}">
+							<input class="btn btn-cancel btn-cancel-lg btn-size-1 btn-size-1-lg" type="submit"
+								name="cmd" value="담기">
+							<input class="btn btn-default btn-default-lg btn-size-1 btn-size-1-lg ml-1" type="submit"
+								name="cmd" value="주문하기">
+						</div>
+					</form>
+				</section>
+			</div>
+		</section>
+
+		<div class="d-flex justify-content-center">
+			<a href="?p=2" class="btn btn-next">더보기(13+)</a>
+		</div>
+
+		<section class="new-menu menu-section-p">
+			<h1 class="d-none">신메뉴 목록</h1>
+			<!-- <ul>
                     <li>
                     </li>
                 </ul>  -->
-				<div class="list">
-					<span>신규로 출시된 메뉴가 없습니다.</span>
-				</div>
-			</section>
-
+			<div class="list">
+				<span>신규로 출시된 메뉴가 없습니다.</span>
+			</div>
 		</section>
-	</main>
+
+	</section>
+</main>
 
 </html>

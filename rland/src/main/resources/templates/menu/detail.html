@@ -43,11 +43,13 @@
 								<div class="">총량 300ml</div>
 							</div>
 							<div class="tab-div">
-								<a href="" class="btn-toggle-tab">Default 크기</a>
-								<a href="" class="btn-toggle-tab not-selected">Large 크기</a>
+								<a href="" class="btn-toggle-tab"
+											th:classappend="${param.s}==null?'current'">Default 크기</a>
+								<a href="" class="btn-toggle-tab"
+											th:classappend="${#strings.equals(param.s,'lg')}?'current'">Large 크기</a>
 							</div>
 						</header>
-						<ul class="common-p">
+						<ul class="common-p" th:classappend="${#strings.equals(param.s,'lg')}?'d-none'">
 							<li>
 								<span>포화지방</span>
 								<span>2 g</span>
@@ -67,6 +69,28 @@
 							<li>
 								<span>카페인</span>
 								<span>2 mg</span>
+							</li>
+						</ul>
+						<ul class="common-p" th:classappend="${not #strings.equals(param.s,'lg')}?'d-none'">
+							<li>
+								<span>포화지방</span>
+								<span>5 g</span>
+							</li>
+							<li>
+								<span>단백질</span>
+								<span>5 g</span>
+							</li>
+							<li>
+								<span>나트륨</span>
+								<span>5 mg</span>
+							</li>
+							<li>
+								<span>당</span>
+								<span>5 g</span>
+							</li>
+							<li>
+								<span>카페인</span>
+								<span>5 mg</span>
 							</li>
 						</ul>
 					</section>

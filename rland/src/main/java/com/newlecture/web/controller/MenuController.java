@@ -77,15 +77,21 @@ public class MenuController {
 
 		return "redirect:list";
 	}
-
+	
+	@GetMapping("/detail")
+	public String detail() {
+		
+		return "menu/detail";
+	}
+	
 	@GetMapping("{id}")
-	public String detail(@PathVariable("id") int id,
-						@CookieValue("test") String cookieValue
+	public String detailById(@PathVariable("id") int id
+//						@CookieValue("test") String cookieValue
 //						HttpSession session
 						) {
 
-		int memberId = 1;
-		int countInCart = service.countOfMenuInCart(memberId);
+//		int memberId = 1;
+//		int countInCart = service.countOfMenuInCart(memberId);
 		Menu menu = service.get(id);
 //		List<Menu> rcmdlist = service.getRcmdListByMenu(menuId);
 //		List<Menu> newList = service.getNewList();
