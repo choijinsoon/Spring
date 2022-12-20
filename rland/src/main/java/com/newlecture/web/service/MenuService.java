@@ -7,6 +7,7 @@ import com.newlecture.web.entity.Menu;
 public interface MenuService {
    List<Menu> getList();
    List<Menu> getList(int page);
+   List<Menu> getListByCategory(int categoryId);
    
    void addToCart(int memberId, int menuId, boolean ice, boolean large);
 

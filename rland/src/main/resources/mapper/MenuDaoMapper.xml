@@ -5,6 +5,11 @@
 <mapper namespace="com.newlecture.web.dao.MenuDao">
 	<select id="getList" resultType="Menu">
 		select * from Menu
+		<trim prefix="WHERE">
+			<if test="categoryId != null">
+			categoryId = #{categoryId}
+			</if>
+		</trim>
 		limit #{offset}, #{size}
 	</select>
 	<select id="getList1" resultType="Menu">

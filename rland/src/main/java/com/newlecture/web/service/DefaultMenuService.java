@@ -45,7 +45,7 @@ public class DefaultMenuService implements MenuService{
 		int offset = (page-1)*size;
 		
 		
-		return menuDao.getList(offset, size);
+		return menuDao.getList(offset, size, null);
 	}
 
 	@Override
@@ -79,6 +79,14 @@ public class DefaultMenuService implements MenuService{
 	@Override
 	public Menu get(int id) {
 		return menuDao.get(id);
+	}
+
+	@Override
+	public List<Menu> getListByCategory(int categoryId) {
+		int page = 1;
+		int size = 6;
+		int offset = (page-1)*size;
+		return menuDao.getList(offset, size, categoryId);
 	}
 	
 

@@ -25,6 +25,7 @@ public interface MenuDao {
 //			String query);
 	List<Menu> getList();
 	List<Menu> getList(int offset, int size);
+	List<Menu> getList(int offset, int size, Integer categoryId);
 	
 	//한가지 메뉴 검색
 	Menu get(int id);
