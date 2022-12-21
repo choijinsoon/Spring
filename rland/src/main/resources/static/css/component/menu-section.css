@@ -1,21 +1,10 @@
-.menu-list.ajax-loader{
-    position: relative;
-}
-.menu-list.ajax-loader::after{
-    content: "";
-    display: flex;
-    background: #0007 url(/image/ajax-loader.svg) no-repeat center;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    left: 0px;
-    top: 0px;
-}
+
 
 /* --------------------------------------------- */
 .menu{
     padding:20px 0;
-    border-bottom: 1px solid #707070;
+
+    transition: 1s;
 }
 
 .menu:last-child{
@@ -23,11 +12,12 @@
 }
 
 .menu form{
+    box-sizing: border-box;
     display: grid;
     grid-template: 
     "img title title" 24px
     "img price option" 24px
-    "img button button" 32px / 80px 60px 1fr;
+    "img button button" 32px / 80px 1fr 1fr;
 }
 
 .menu form>h1{
@@ -82,6 +72,27 @@
     margin-right: 5px;
 }
 
+/* --- menu-reg -------------------------------- */
+
+
+.menu-reg-section .img-input{
+    box-sizing: border-box;
+    
+    width: 84px;
+    height: calc(84px - 4px);
+    object-fit: none;
+    overflow: hidden;
+    text-align: center;
+    display: inline-block;
+    
+    border-radius: 50px;
+  }
+
+  .menu-reg-section .img-input::before{
+    content: "";
+    display: inline-block;
+    height: 65px;
+  }
 /* ----------------------------------------------------- */
 
 @media (min-width: 768px) {
@@ -113,6 +124,8 @@
     }
 
     .menu form>h1{
+        display: flex;
+        width: 100%;
         align-self: center;  
         justify-self: flex-start;
     }
@@ -142,6 +155,58 @@
         display: flex; 
         align-items: center;  
     }
+
+    /* --- reg -------------------------------- */
+   
+    .menu-reg-section{
+        
+        padding: 0;
+    }
+    
+    .menu-reg-section form{
+        display: grid;
+        grid-template: 
+        "img img" 130px
+        "title price" 30px
+        "option option" 30px
+        "button button" 40px / 1fr 100px;
+    }
+    .menu-reg-section .img-input{
+        display: inline-flex;
+        flex-direction: column;
+        height: 100%;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        border-radius: 0;
+        background-position: center;
+    }
+
+    .menu-reg-section .img-input::before{
+        content: "이미지선택";
+        display: inline-block;
+        position: relative;
+        top:50px;        
+    }
+    
+    .menu-reg-section form .input{
+        align-self: center;
+        padding: .3em 0;
+        border-radius:0;
+        border: .5px solid #707070;
+        text-indent: 5px;
+    }
+
+    .menu-reg-section .img-input-box::before{
+        content:"";
+    }
+
+    .menu-reg-section .menu-price{
+        
+        justify-self: flex-start;
+        margin-right: 0;        
+    }
+
 }
 
 

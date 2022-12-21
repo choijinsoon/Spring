@@ -33,7 +33,7 @@
         }
         .header>div{
             
-            /* layout */        
+            /* layout */
             height: 100%;
     
             /* item layout */
@@ -51,6 +51,7 @@
         .header .main-menu{
             display: inline-flex;
         }
+        
 
         .header .main-menu li{
             margin-left: 10px;
@@ -64,8 +65,40 @@
             color:#fff;
         }
 
-        /* --- Status --------------------------- */
+        /* --- menu-show ------------------------------- */
+        .header .main-menu.main-menu-show{
+            display: flex !important;
+        }
+        
+        .header .main-menu.main-menu-show li{
+            
+        }
+        .header .main-menu.main-menu-show::before{
+            display: block;
+            content: '';
+            background-color: #000c;    
+            position: fixed;
+            left:0;
+            top: 0;
+            width:100vw;
+            height: 100vh;
+        
+        }
+        .header .main-menu.main-menu-show::after{
+            position: fixed;
+            content: '';
+            right: 0;
+            top:0;
+            width:70%;
+            height: 100vh;
+            background-color: #fff;
+        }
 
+        .header .main-menu.main-menu-show a{
+            color:#000;
+        }
+        /* --- Status --------------------------- */
+    
 @media screen and (min-width: 768px) {
 
 }
@@ -73,7 +106,6 @@
 @media all and (min-width:1000px) {
 
     .header>div{
-
         /* layout */
         width:1000px;
         margin-left: auto;

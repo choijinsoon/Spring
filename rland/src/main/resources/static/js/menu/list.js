@@ -7,15 +7,19 @@ window.addEventListener("load", function() {
     const menuBox = document.querySelector(".menu-list");
     let currentLi = document.querySelector(".menu-category ul li.menu-selected");
     
+    let controller = new AbortController();
+    
     ul.onclick = function(e){
 		
         e.preventDefault();
         const el = e.target;
-        const controller = new AbortController();
         
         if(menuBox.classList.contains("ajax-loader")){
-            if(confirm("loading \n\r 확인 = 취소"))
+            if(confirm("loading \n\r 확인 = 취소")){
                 controller.abort();
+				controller = new AbortController();				
+			}
+            return;
         }
 
         if(el.tagName != "LI" && el.tagName != "A")
@@ -48,7 +52,7 @@ window.addEventListener("load", function() {
 
             for(let m of list){
                 let template = `
-                <section class="menu">
+                <section class="menu hidden">
                     <form class="" action="list" method="post">
                         <h1>${m.name}</h1>
                         <div class="menu-img-box">
@@ -74,8 +78,20 @@ window.addEventListener("load", function() {
                     </form>
                 </section>
                 `;
-                menuBox.insertAdjacentHTML("beforeend", template);
+                //menuBox.insertAdjacentHTML("beforeend", template);
+            
+            	let le = new DomParser()
+            			.parseFromString(template, "text/html")
+            			.body
+            			.firstElementChild;
+            			
+            	menuBox.append(el);    
             };
+            
+            setTimeout(()=>{
+            	for(let i=0; i<6; i++)
+	            	menuBox.children[i].classList.remove("hidden");
+			},1000);
 
             //아이콘 지우기
             menuBox.classList.remove("ajax-loader");

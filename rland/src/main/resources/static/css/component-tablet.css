@@ -82,74 +82,7 @@
         height: 100%;
     }
 
-    /*-------------------------------
-    /menu/detail
-    ---------------------------------*/
-    .menu-detail{
-        display: grid;
-        grid-template :
-		"img menu-info"  150px
-		"img nutrition-info" 200px
-		"btn btn" 80px/
-		315px 1fr;
-        grid-column-gap: 20px;
 
-    }
-
-    .menu-detail header{
-        grid-area: img;
-    }
-
-    .menu-detail header>h1{
-        font-size:var(--font-size-title1);
-        display: block;
-    }
-
-    .menu-detail header .img-div{
-        height: 290px;
-        margin-top: 30px;
-    }
-
-    .menu-detail article,.nutrition-info{
-        padding: 0;
-    }
-
-    .menu-detail article{
-        grid-area: menu-info;
-    }
-
-    .menu-detail article header{
-        padding-bottom: 12px;
-        border-bottom: solid 2px var(--color-border);
-        justify-content: space-between;
-    }
-
-    .menu-detail > div {
-        grid-area: btn;
-        align-items: center;
-
-        margin: 0;
-    }
-
-    .menu-detail > div a{
-        width: var(--btn-width);
-        height: var(--btn-height);
-        text-align: center;
-        margin: 10px;
-    }
-
-    .menu-detail .btn{
-        font-weight: bold;
-        color: var(--color-text-invert);
-        font-size: 14px;
-        border-radius: 0;
-        background-image: none;
-        background-color: var(--color-main-dark);
-        text-indent: 0;
-        width: 150px;
-        height: 40px;
-        padding: var(--btn-text-p-v) var(--btn-text-p-h);
-    }
 
 
     /*-------------------------------
@@ -171,22 +104,6 @@
         background-color: var(--color-strong);
     }
 
-    /* nutrition */
-
-    .menu-detail .nutrition-info{
-        grid-area: nutrition-info;
-    }
-
-    /* nutrition */
-    .nutrition-info ul{
-        display: grid;
-        grid-template-columns : repeat(2, 1fr);
-        grid-column-gap: 20px;
-    }
-
-    .nutrition-info .tab-div{
-        justify-content: center;
-    }
 
     /*----------------------
     /user/login
