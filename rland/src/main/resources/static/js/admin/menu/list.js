@@ -8,6 +8,7 @@ window.addEventListener("load", function(){
 		e.preventDefault();
 
 		menuRegSection.classList.remove("d-none");
+		console.log(btnAdd.value)
 	};
 
 	imgInput.onclick = function(e) {
@@ -16,9 +17,16 @@ window.addEventListener("load", function(){
 			'bubbles':true,
 			'cancelable':true
 		});
-		console.log(e.target);
-		console.log(e.target.tagName);
-		console.log(e.target.parentElement);
 		fileInput.dispatchEvent(event);
 	};
+
+	fileInput.oninput = function(e) {
+		let url = fileInput.files[0];
+
+		let reader = new FileReader();
+		reader.onload = (evt)=>{
+			imgInput.src = evt.target.result; //화면에 보여주는 이미지
+		};
+		reader.readAsDataURL(url);
+	}
 });

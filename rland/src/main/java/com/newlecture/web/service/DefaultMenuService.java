@@ -88,6 +88,15 @@ public class DefaultMenuService implements MenuService{
 		int offset = (page-1)*size;
 		return menuDao.getList(offset, size, categoryId);
 	}
+
+	@Transactional(isolation = Isolation.SERIALIZABLE)
+	@Override
+	public Menu getLastOneAfterAdding(String name, String originalFilename, int price) {
+		Menu menu = new Menu(name, price, originalFilename, 1);
+		menuDao.add(menu);
+		Menu lastOne = menuDao.getLast();
+		return lastOne;
+	}
 	
 
 }

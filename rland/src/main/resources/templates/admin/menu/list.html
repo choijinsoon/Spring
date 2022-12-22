@@ -52,14 +52,14 @@
 			<h1 class="d-none">메뉴목록</h1>
 			<div class="menu-list">
 				<section class="menu d-none menu-reg-section border-bottom border-color-1">
-					<form class="overflow-hidden">
-						<h1><input type="text" class="input w-75 w-100-md" name="titile" placeholder="메뉴 이름을 입력하세요.">
+					<form class="overflow-hidden" action="reg" method="post" enctype="multipart/form-data">
+						<h1><input type="text" class="input w-75 w-100-md" name="title" placeholder="메뉴 이름을 입력하세요.">
 						</h1>
 						<div class="menu-img-box">
 							<img src="/image/product/blank-img.png" class="img-input">
-							<input type="file" class="d-none file-input">
+							<input type="file" class="d-none file-input" name="img">
 						</div>
-						<div class="menu-price"><input class="w-75 w-50-md input ml-0 ml-1-md" type="text"
+						<div class="menu-price"><input class="w-75 w-50-md input ml-0 ml-1-md" type="text" name="price"
 								placeholder="가격을 입력하세요"> 원</div>
 						<div class="menu-option-list">
 							<span class="menu-option">
