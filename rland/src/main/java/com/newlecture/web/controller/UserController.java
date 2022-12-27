@@ -25,7 +25,7 @@ public class UserController {
 	@PostMapping("/login")
 	public String login(
 		String username, 
-		String pwd, 
+		String password, 
 		String returnURL, 
 		HttpSession session) {
 
@@ -38,7 +38,7 @@ public class UserController {
 		System.out.println(member);
 		if(member == null)
 			return "redirect:login?error";
-		else if(!member.getPwd().equals(pwd))
+		else if(!member.getPwd().equals(password))
 			return "redirect:login?error";
 
 		session.setAttribute("username", member.getUsername());

@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-RlandApplication<rland>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.newlecture.web.RlandApplication",
+            "projectName": "rland",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

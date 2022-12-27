@@ -56,12 +56,13 @@ public class MenuController {
 			HttpServletRequest request,
 			HttpServletResponse response) {
 
-
+				
 			
 		// 인증 확인
-		String username = (String) session.getAttribute("username");
-		if (username == null) //인증 한 적 없다
-			return "redirect:/user/login?returnURL=/admin/menu/list";
+		// String username = (String) session.getAttribute("username");
+		// if (username == null) //인증 한 적 없다
+		// 	return "redirect:/user/login?returnURL=/admin/menu/list";
+
 
 
 			
