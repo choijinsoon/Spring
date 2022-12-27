@@ -42,9 +42,14 @@ public interface MenuDao {
 	int update(Menu menu);
 	int updateAll(Menu[] menus);
 	
-	int delete(int id);
 	int deleteAll(int[] ids);
 	void add();
 	void add(Cart cart);
+
+
+    void add(Menu menu);
+    Menu getLast();
+
+	int delete(int id);
 
 }

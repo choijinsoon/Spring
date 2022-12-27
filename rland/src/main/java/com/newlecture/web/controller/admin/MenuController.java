@@ -27,6 +27,7 @@ import com.newlecture.web.service.MenuService;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 @Controller("adminMenuController")
 @RequestMapping("/admin/menu")
@@ -51,10 +52,19 @@ public class MenuController {
 	public String list(
 			@RequestParam(defaultValue = "1", name = "p") int page, 
 			Model model,
-//			HttpSession session,
+			HttpSession session,
 			HttpServletRequest request,
 			HttpServletResponse response) {
 
+
+			
+		// 인증 확인
+		String username = (String) session.getAttribute("username");
+		if (username == null) //인증 한 적 없다
+			return "redirect:/user/login?returnURL=/admin/menu/list";
+
+
+			
 //		session.setAttribute("test", "hello");
 		String value = URLEncoder.encode("hello cookie");
 		Cookie cookie = new Cookie("ctest",value);
@@ -93,10 +103,14 @@ public class MenuController {
 	}
 	
 	@GetMapping("{id}")
-	public String detailById(@PathVariable("id") int id
-//						@CookieValue("test") String cookieValue
-//						HttpSession session
+	public String detailById(@PathVariable("id") int id,
+						@CookieValue("test") String cookieValue,
+						HttpSession session
 						) {
+
+		String username = (String) session.getAttribute("username");
+		if (username == null) 
+			return "redirect:/user/login?returnURL=/admin/menu/list";
 
 //		int memberId = 1;
 //		int countInCart = service.countOfMenuInCart(memberId);

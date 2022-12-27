@@ -97,6 +97,11 @@ public class DefaultMenuService implements MenuService{
 		Menu lastOne = menuDao.getLast();
 		return lastOne;
 	}
+
+	@Override
+	public int delete(int id) {
+		return menuDao.delete(id);
+	}
 	
 
 }

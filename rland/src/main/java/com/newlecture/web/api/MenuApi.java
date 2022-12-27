@@ -9,9 +9,11 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -50,13 +52,26 @@ public class MenuApi {
 		return "";
 	}
 
-	@PostMapping("/reg")
-	public Map<String, Object> reg(MultipartFile img, String title, int price, HttpServletRequest request) throws Exception{
+	@DeleteMapping("/menus/{id}")
+	// @GetMapping("/delete")
+	public Map<String, Object> delete(@PathVariable("id") int id){
+		int result = service.delete(id);
+		Map<String, Object> dto = new HashMap<>();
+		dto.put("status", 200);
+		dto.put("resultObject", result);
 
+		return dto;
+	}
+
+	@PutMapping("/menus")
+	// @PostMapping("/menus/reg")
+	public Map<String, Object> reg(MultipartFile img, String name, int price, HttpServletRequest request) throws Exception{
+
+		// System.out.println(name);
 		// service.add(Menu);
 		// service.getLastOne();
 
-		Menu menu = service.getLastOneAfterAdding(title, img.getOriginalFilename(), price);
+		Menu menu = service.getLastOneAfterAdding(name, img.getOriginalFilename(), price);
 
 		Map<String, Object> dto = new HashMap<>();
 		dto.put("status", 200);
@@ -66,7 +81,7 @@ public class MenuApi {
 		// service.add(title, img.getOriginalFilename(), price);
 
 		if(!img.isEmpty()){
-			String path = "/image/menu";
+			String path = "/image/product";
 			String realPath = request.getServletContext().getRealPath(path);
 			System.out.println(realPath);
 
@@ -89,6 +104,6 @@ public class MenuApi {
 			fos.close();
 			
 		}
-		return "redirect:list";
+		return dto;
 	}
 }

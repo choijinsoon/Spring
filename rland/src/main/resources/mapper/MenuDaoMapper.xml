@@ -10,8 +10,10 @@
 			categoryId = #{categoryId}
 			</if>
 		</trim>
+		order by id desc
 		limit #{offset}, #{size}
 	</select>
+
 	<select id="getList1" resultType="Menu">
 		select * from Menu 
 		<trim prefix="WHERE" prefixOverrides="AND | OR">
@@ -22,18 +24,28 @@
 		</trim>
 		limit #{offset}, #{size}
 	</select>
+
 	<select id="get" resultType="Menu">
 		select * from Menu  
 		where id = #{id}
 	</select>
+
+	<select id="add" resultType="Menu">
+		insert into Menu(name, price, img) 
+		values(#{name}, ${price}, #{img});
+	</select>
+
+	<select id="getLast" resultType="Menu">
+		select * from Menu
+		order by id desc 
+		limit 0, 1
+	</select>
+
 	<select id="count" resultType="int">
 		select count(id) from Menu 
 		where name like '%${query}%'
 	</select>
-	<insert id="insert" parameterType="Menu">
-		insert into Menu(name, price, img) 
-		values(#{name}, ${price}, #{img});
-	</insert>
+
 	<update id="update" parameterType="Menu">
 		update Menu 
 		<set>
@@ -43,8 +55,10 @@
 		</set>
 		where id = #{id}
 	</update>
+
 	<delete id="delete">
 		delete from Menu
 		where id = #{id}
 	</delete>
+
 </mapper>

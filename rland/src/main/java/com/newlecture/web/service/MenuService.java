@@ -18,4 +18,6 @@ public interface MenuService {
    int countOfMenuInCart(int memberId);
    Menu get(int id);
    Menu getLastOneAfterAdding(String name, String originalFilename, int price);
+
+   int delete(int id);
 }

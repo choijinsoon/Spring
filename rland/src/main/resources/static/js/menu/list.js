@@ -50,8 +50,8 @@ window.addEventListener("load", function() {
             // console.log(list[0]);
             menuBox.innerHTML = "";
 
-            for(let m of list){
-                let template = `
+            for (let m of list) {
+              let template = `
                 <section class="menu hidden">
                     <form class="" action="list" method="post">
                         <h1>${m.name}</h1>
@@ -78,20 +78,18 @@ window.addEventListener("load", function() {
                     </form>
                 </section>
                 `;
-                //menuBox.insertAdjacentHTML("beforeend", template);
-            
-            	let le = new DomParser()
-            			.parseFromString(template, "text/html")
-            			.body
-            			.firstElementChild;
-            			
-            	menuBox.append(el);    
-            };
-            
-            setTimeout(()=>{
-            	for(let i=0; i<6; i++)
-	            	menuBox.children[i].classList.remove("hidden");
-			},1000);
+              //menuBox.insertAdjacentHTML("beforeend", template);
+
+            let le = new DomParser().parseFromString(template, "text/html")
+                .body.firstElementChild;
+
+            menuBox.append(el);
+            }
+
+            setTimeout(() => {
+            for (let i = 0; i < 6; i++)
+                menuBox.children[i].classList.remove("hidden");
+            }, 1000);
 
             //아이콘 지우기
             menuBox.classList.remove("ajax-loader");

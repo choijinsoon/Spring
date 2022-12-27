@@ -53,7 +53,7 @@
 			<div class="menu-list">
 				<section class="menu d-none menu-reg-section border-bottom border-color-1">
 					<form class="overflow-hidden" action="reg" method="post" enctype="multipart/form-data">
-						<h1><input type="text" class="input w-75 w-100-md" name="title" placeholder="메뉴 이름을 입력하세요.">
+						<h1><input type="text" class="input w-75 w-100-md" name="name" placeholder="메뉴 이름을 입력하세요.">
 						</h1>
 						<div class="menu-img-box">
 							<img src="/image/product/blank-img.png" class="img-input">
@@ -75,35 +75,37 @@
 							<input class="btn btn-line btn-round btn-size-1 btn-bd-blue rounded-0-md" type="submit"
 								value="취소">
 							<input
-								class="btn btn-fill btn-round rounded-0-md btn-size-1 btn-bd-blue btn-color-blue ml-1"
+								class="btn btn-fill btn-round rounded-0-md btn-size-1 btn-bd-blue btn-color-blue ml-1 btn-reg"
 								type="submit" value="저장">
 						</div>
 					</form>
 				</section>
-				<section class="menu border-bottom border-color-1" th:each="menu:${list}">
-					<form class="">
-						<h1 th:text="${menu.name}">알랜드 커피</h1>
-						<div class="menu-img-box">
-							<a href="detail.html" th:href="${menu.id}"><img class="menu-img" src="/image/product/12.png" th:src="${menu.img}"></a>
-						</div>
-						<div th:text="${#dates.format(menu.regDate, 'yyyy-MM-dd HH:mm')}"></div>
-						<div class="menu-price" th:text="${menu.price}+' 원'">4500 원</div>
-						<div class="menu-option-list">
-							<span class="menu-option">
-								<input class="menu-option-input" type="checkbox">
-								<label>ICED</label>
-							</span>
-							<span class="menu-option ml-2">
-								<input class="menu-option-input" type="checkbox">
-								<label>Large</label>
-							</span>
-						</div>
-						<div class="menu-button-list">
-							<input class="btn btn-line btn-round btn-size-1 rounded-0-md" type="submit" value="수정">
-							<input class="btn btn-fill btn-round rounded-0-md btn-size-1 ml-1" type="submit" value="삭제">
-						</div>
-					</form>
-				</section>
+
+			<section class="menu border-bottom border-color-1" th:each="menu:${list}">
+				<form class="">
+					<h1 th:text="${menu.name}">알랜드 커피</h1>
+					<div class="menu-img-box">
+						<a href="detail.html" th:href="${menu.id}"><img class="menu-img" src="/image/product/12.png"
+								th:src="@{/image/product/{img}(img=${menu.img})}"></a>
+					</div>
+					<div th:text="${#dates.format(menu.regDate, 'yyyy-MM-dd HH:mm')}"></div>
+					<div class="menu-price" th:text="${menu.price}+' 원'">4500 원</div>
+					<div class="menu-option-list">
+						<span class="menu-option">
+							<input class="menu-option-input" type="checkbox">
+							<label>ICED</label>
+						</span>
+						<span class="menu-option ml-2">
+							<input class="menu-option-input" type="checkbox">
+							<label>Large</label>
+						</span>
+					</div>
+					<div class="menu-button-list">
+						<input class="btn btn-line btn-round btn-size-1 rounded-0-md" type="submit" value="수정">
+						<input th:attr="data-id=${menu.id}" class="btn btn-fill btn-round rounded-0-md btn-size-1 ml-1 btn-del" type="submit" value="삭제">
+					</div>
+				</form>
+			</section>
 
 			</div>
 		</section>
