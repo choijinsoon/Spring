@@ -14,5 +14,10 @@ public class HomeController {
 	public String index() {
 		return "index";
 	}
+
+	@GetMapping("denied")
+	public String denied() {
+		return "denied";
+	}
 	
 }

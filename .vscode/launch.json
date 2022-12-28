@@ -2,13 +2,21 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch TestApp",
+            "request": "launch",
+            "mainClass": "com.newlecture.web.TestApp",
+            "projectName": "rland"
+        },
+        {
+            "type": "java",
             "name": "Spring Boot-RlandApplication<rland>",
             "request": "launch",
             "cwd": "${workspaceFolder}",
             "mainClass": "com.newlecture.web.RlandApplication",
             "projectName": "rland",
             "args": "",
-            "envFile": "${workspaceFolder}/.env"
+            "envFile": "${workspaceFolder}/.env",
+            "vmArgs": " -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=58643 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dspring.jmx.enabled=true -Djava.rmi.server.hostname=localhost -Dspring.application.admin.enabled=true -Dspring.boot.project.name=rland"
         }
     ]
 }
