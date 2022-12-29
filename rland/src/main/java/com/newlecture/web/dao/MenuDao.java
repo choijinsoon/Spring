@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.newlecture.web.entity.Cart;
+import com.newlecture.web.entity.Member;
 import com.newlecture.web.entity.Menu;
 
 @Mapper
@@ -51,5 +52,6 @@ public interface MenuDao {
     Menu getLast();
 
 	int delete(int id);
+	
 
 }

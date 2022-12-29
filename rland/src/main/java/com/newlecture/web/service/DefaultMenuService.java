@@ -8,8 +8,10 @@ import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.newlecture.web.dao.CartDao;
+import com.newlecture.web.dao.MemberDao;
 import com.newlecture.web.dao.MenuDao;
 import com.newlecture.web.entity.Cart;
+import com.newlecture.web.entity.Member;
 import com.newlecture.web.entity.Menu;
 
 @Service
@@ -20,6 +22,9 @@ public class DefaultMenuService implements MenuService{
 	
 	@Autowired
 	private CartDao cartDao;
+
+	@Autowired
+	private MemberDao memberDao;
 	
 	public DefaultMenuService() {
 		
@@ -101,6 +106,13 @@ public class DefaultMenuService implements MenuService{
 	@Override
 	public int delete(int id) {
 		return menuDao.delete(id);
+	}
+
+	@Transactional
+	@Override
+	public int countOfMenuInCartByUsername(String username) {
+		Member member = memberDao.getByUserName(username);
+		return member.getId();
 	}
 	
 

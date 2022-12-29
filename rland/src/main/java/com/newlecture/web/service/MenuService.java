@@ -20,4 +20,5 @@ public interface MenuService {
    Menu getLastOneAfterAdding(String name, String originalFilename, int price);
 
    int delete(int id);
+   int countOfMenuInCartByUsername(String username);
 }

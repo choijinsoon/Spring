@@ -15,6 +15,8 @@ import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.provisioning.JdbcUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 
+import com.newlecture.web.service.RlandUserDetailsService;
+
 @Configuration
 public class RlandSecurityConfig {
 
@@ -34,12 +36,17 @@ public class RlandSecurityConfig {
          // .httpBasic();
          .formLogin(form->form
             .loginPage("/user/login")  //URI에서 로그인을 하고 성공하면 index로 이동
-            .defaultSuccessUrl("/index"))
+            .defaultSuccessUrl("/index")
+            // .successHandler(null)
+            )
          .exceptionHandling(exp->exp
             .accessDeniedPage("/denied"))
          .logout(form->form
             .logoutUrl("/user/logout") //URI 접속하면 index로 이동
-            .logoutSuccessUrl("/index"));
+            .logoutSuccessUrl("/index")
+            // .logoutSuccessHandler(null)
+            );
+
 
       return http.build();
    }
@@ -50,7 +57,12 @@ public class RlandSecurityConfig {
 
    }
 
-   @Bean //사용자의 목록
+   @Bean
+   public UserDetailsService rlandUserDetailsService(){
+      return new RlandUserDetailsService();
+   }
+
+   // @Bean //사용자의 목록
    public UserDetailsService jdbcUserDetailsService() {
       JdbcUserDetailsManager manager = new JdbcUserDetailsManager(datasource);
       manager.setUsersByUsernameQuery("select username, pwd password, 1 enabled from Member where username=?");
