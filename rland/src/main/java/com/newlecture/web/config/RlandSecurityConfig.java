@@ -15,9 +15,9 @@ import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.provisioning.JdbcUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 
-import com.newlecture.web.service.RlandUserDetailsService;
+import com.newlecture.web.auth.RlandUserDetailsService;
 
-@Configuration
+//@Configuration
 public class RlandSecurityConfig {
 
    @Autowired
@@ -29,7 +29,7 @@ public class RlandSecurityConfig {
          .csrf()
             .disable()
          .authorizeHttpRequests(auth->auth
-            .requestMatchers("/admin/**").hasAnyRole("ADMIN") //ROLE 권한이 있으면 URI를 허용
+            .requestMatchers("/admin/**").hasAnyRole("ADMIN","CORP") //ROLE 권한이 있으면 URI를 허용
             .requestMatchers("/member/**").hasAnyRole("ADMIN","MEMBER")
             .anyRequest().permitAll()
          )
@@ -66,8 +66,14 @@ public class RlandSecurityConfig {
    public UserDetailsService jdbcUserDetailsService() {
       JdbcUserDetailsManager manager = new JdbcUserDetailsManager(datasource);
       manager.setUsersByUsernameQuery("select username, pwd password, 1 enabled from Member where username=?");
+      
+      // Role 테이블이 없을 경우
+      // manager.setAuthoritiesByUsernameQuery("select username, 'ROLE_ADMIN' authority from Member where username=?");
 
-      manager.setAuthoritiesByUsernameQuery("select username, 'ROLE_ADMIN' authority from Member where username=?");
+      // Role 테이블이 있을 경우
+      manager.setAuthoritiesByUsernameQuery("select username, r.name authority from Member where username=?");
+
+      
       return manager;
 
    }

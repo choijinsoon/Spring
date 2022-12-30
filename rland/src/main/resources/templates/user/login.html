@@ -11,6 +11,9 @@
         </header>
         <section class="login">
             <h1 class="d-none">일반 로그인</h1>
+            <div th:if="${param.error}">
+                아이디 또는 비밀번호가 일치하지 않습니다.
+            </div>
             <form action="login" method="post">
                 <div class="d-flex align-items-center">
                     <label class="d-none">아이디</label><input class="" name="username" type="text" placeholder="로그인 아이디를 입력하세요">

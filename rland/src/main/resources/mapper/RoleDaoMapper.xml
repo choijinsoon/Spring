@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.newlecture.web.dao.RoleDao">
+	<select id="getListByUserName" resultType="Role">
+		select r.id, r.name
+		from  Member m join Role r
+		on r.id = m.roleId
+		where username = #{username}
+	</select>
+
+</mapper>

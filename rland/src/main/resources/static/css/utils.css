@@ -1157,6 +1157,10 @@
   height: 0px !important;
 }
 
+.h-100px {
+  height: 100px!important;
+}
+
 .h-0 {
   height: 0% !important;
 }

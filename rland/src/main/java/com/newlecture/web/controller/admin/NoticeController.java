@@ -1,6 +1,8 @@
 package com.newlecture.web.controller.admin;
 
-@Controller
+import org.springframework.stereotype.Controller;
+
+// @Controller
 public class NoticeController {
 
 }

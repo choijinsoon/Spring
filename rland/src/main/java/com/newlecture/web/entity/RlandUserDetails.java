@@ -14,6 +14,7 @@ public class RlandUserDetails implements UserDetails {
    private String email;
    private String username;
    private String password;
+   private List<GrantedAuthority> authorites;
    
 
    @Override
@@ -22,12 +23,17 @@ public class RlandUserDetails implements UserDetails {
             + "]";
    }
 
+   public void setAuthorites(List<GrantedAuthority> authorites) {
+      this.authorites = authorites;
+   }
+   
    @Override
    public Collection<? extends GrantedAuthority> getAuthorities() {
-      List<GrantedAuthority> list = new ArrayList<GrantedAuthority>();
-      list.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
+      // List<GrantedAuthority> list = new ArrayList<GrantedAuthority>();
+      // list.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
 
-      return list;
+      // return list;
+      return authorites;
    }
 
    @Override
