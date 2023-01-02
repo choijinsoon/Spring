@@ -4,7 +4,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 public class TestApp {
    public static void main(String[] args) throws Exception {
-      String pwd = "user";
+      String pwd = "1";
 
       BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 

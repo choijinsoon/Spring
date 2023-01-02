@@ -18,6 +18,11 @@ public class AuthenticationFilter implements Filter{
         "/member/**"
     };
 
+    public AuthenticationFilter() {
+    }
+
+
+
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
             throws IOException, ServletException {
@@ -46,5 +51,8 @@ public class AuthenticationFilter implements Filter{
         String username = (String) session.getAttribute("username");
 		if (username == null) //인증 한 적 없다
 			return ;
+
+        chain.doFilter(request, response);
+
     }
 }

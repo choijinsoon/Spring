@@ -8,4 +8,8 @@ import com.newlecture.web.entity.Member;
 public interface MemberDao {
     Member getByUserName(String username);
 
+    Member getByOAuthIdWithIss(String oAuthId, String oAuthIss);
+
+    void add(Member temp);
+
 }

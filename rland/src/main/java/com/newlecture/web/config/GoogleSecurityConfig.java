@@ -18,7 +18,7 @@ import org.springframework.security.web.SecurityFilterChain;
 import com.newlecture.web.auth.GoogleUserDetailsService;
 import com.newlecture.web.auth.RlandUserDetailsService;
 
-@Configuration
+// @Configuration
 public class GoogleSecurityConfig {
 
    @Autowired

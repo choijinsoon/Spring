@@ -6,6 +6,10 @@ public class Member {
    private String pwd;
    private String email;
    private String regDate;
+   private String oAuthId;
+   private String oAuthIss;
+
+   
    
    public Member() {
    }
@@ -64,10 +68,26 @@ public class Member {
       this.regDate = regDate;
    }
 
+   public String getOAuthId() {
+      return oAuthId;
+   }
+
+   public void setOAuthId(String oAuthId) {
+      this.oAuthId = oAuthId;
+   }
+
+   public String getOAuthIss() {
+      return oAuthIss;
+   }
+
+   public void setOAuthIss(String oAuthIss) {
+      this.oAuthIss = oAuthIss;
+   }
+
    @Override
    public String toString() {
       return "Member [id=" + id + ", username=" + username + ", pwd=" + pwd + ", email=" + email + ", regDate="
-            + regDate + "]";
+            + regDate + ", oAuthId=" + oAuthId + ", oAuthIss=" + oAuthIss + "]";
    }
    
    

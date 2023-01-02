@@ -8,4 +8,10 @@
 		where username = #{username}
 	</select>
 
+	<select id="getByOAuthIdWithIss" resultType="Member">
+		select * from Member
+		where oAuthId = #{oAuthId}
+		and oAuthIss = #{oAuthIss}
+	</select>
+
 </mapper>
