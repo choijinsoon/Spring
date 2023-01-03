@@ -7,9 +7,22 @@ window.addEventListener("load", () => {
 
       let target = e.target;
       if(target.classList.contains("btn-bold")){
-         let range = window.getSelection().getRangeAt(0);
-         let frag = document.createDocumentFragment()
-         frag.appendChild(node);
+         const selObj = window.getSelection();
+         console.log(selObj.toString());
+
+         let template = `<span style="font-weight: bold;color: red">${selObj.toString()}</span>`;
+
+         const range = selObj.getRangeAt(0);
+
+         let frag = document.createDocumentFragment();
+         // template 문자열을 dom 객체로 만들기
+         let el = document.createElement("div");
+         el.innerHTML = template;
+
+         frag.append(el.firstChild);
+
+         selObj.deleteFromDocument();
+         
          range.insertNode(frag);
 
       }

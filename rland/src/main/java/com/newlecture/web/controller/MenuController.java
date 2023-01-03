@@ -160,4 +160,33 @@ public class MenuController {
 		}
 		return "redirect:list";
 	}
+
+	@GetMapping("/upload")
+	public String upload(MultipartFile file, String path, HttpServletRequest request) throws Exception{
+
+		if(!file.isEmpty()){
+			String realPath = request.getServletContext().getRealPath(path);
+			System.out.println(realPath);
+
+			File pathFile = new File(realPath);
+			if(!pathFile.exists())
+				pathFile.mkdirs();
+
+			String fullPath = realPath + File.separator +file.getOriginalFilename();
+
+			InputStream fis = file.getInputStream();
+			OutputStream fos = new FileOutputStream(fullPath);
+
+			byte[] buf = new byte[1024];
+			int size = 0;
+			while((size = fis.read(buf))>=0)
+				fos.write(buf, 0, size);
+
+				
+			fis.close();
+			fos.close();
+			
+		}
+		return file.getOriginalFilename();
+	}
 }
