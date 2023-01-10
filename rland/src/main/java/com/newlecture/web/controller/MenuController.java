@@ -109,22 +109,22 @@ public class MenuController {
 		return "menu/detail";
 	}
 	
-	@GetMapping("{id}")
-	public String detailById(@PathVariable("id") int id
-//						@CookieValue("test") String cookieValue
-//						HttpSession session
-						) {
+// 	@GetMapping("{id}")
+// 	public String detailById(@PathVariable("id") int id
+// //						@CookieValue("test") String cookieValue
+// //						HttpSession session
+// 						) {
 
-//		int memberId = 1;
-//		int countInCart = service.countOfMenuInCart(memberId);
-		Menu menu = service.get(id);
-//		List<Menu> rcmdlist = service.getRcmdListByMenu(menuId);
-//		List<Menu> newList = service.getNewList();
-//		Object test = session.getAttribute("test");
-//		System.out.println(test);
+// //		int memberId = 1;
+// //		int countInCart = service.countOfMenuInCart(memberId);
+// 		Menu menu = service.get(id);
+// //		List<Menu> rcmdlist = service.getRcmdListByMenu(menuId);
+// //		List<Menu> newList = service.getNewList();
+// //		Object test = session.getAttribute("test");
+// //		System.out.println(test);
 		
-		return "menu/detail";
-	}
+// 		return "menu/detail";
+// 	}
 
 	@GetMapping("/delete")
 	public String delete(int id){

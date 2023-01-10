@@ -1,0 +1,207 @@
+@charset "UTF-8";
+/* https://fonts.google.com/specimen/Nanum+Gothic?subset=korean */
+/*@import url('https://fonts.googleapis.com/css2?family=Jua&family=Nanum+Gothic:wght@400;700;800&display=swap');*/
+
+@import url(buttons.css);
+@import url(layout.css);
+@import url(reset.css);
+@import url(component.css);
+@import url(utils.css);
+
+:root{
+	
+	/* === color defined ========================== */
+	--color-warning:#FF0505;
+	
+	--color-bd-color:#707070;
+	
+	--color-bg:#4E4E4E;
+	--color-bg-light:#D2D2D2;
+	--color-bg-dark:#000000;
+	--color-bg-gray : #CCCCCC;
+	--color-bg-white : #FFFFFF;
+
+	--color-text:#7A7A7A;
+	--color-text-dark:#000000;
+	--color-text-invert:#FFFFFF;
+	--color-text-emphasis : #FFDF00;
+	
+	--color-main-light:#FFE8C5;
+	--color-main:#D68814;
+	--color-main-dark:#A24F17;
+	
+	--color-strong:#4C8EFF;
+	--color-strong-dark:#005FFF;
+	
+	--color-border : #707070;
+	
+	--color-btn-warning: rgba(255, 5, 5, .5);
+	--color-btn-main: rgba(214, 136,20, .5);
+	
+	/*버튼 패딩*/
+	--btn-text-p-v:0.8em;
+	--btn-text-p-h:2em;
+	--btn-p-v:0.3em;
+	--btn-p-h:0.7em;
+	--btn-text-sm-p-v: 0.2em;
+	--btn-text-sm-p-h: 0.4em;
+
+	/*버튼 고정 크기*/
+	--btn-width : 82px;
+	--btn-width-large : 120px;
+	--btn-height : 30px;
+
+	/*원형 버튼 크기*/
+	--btn-diameter-small : 37px;
+	--btn-diameter-medium : 54px;
+	--btn-diameter-large : 79px; 
+	--image-view-diameter : 84px;
+
+	/*폰트 사이즈*/
+	--font-size-title1:20px;
+	--font-size-title2:17px;
+	--font-size-title3:15px;
+	--font-size-normal:13px;
+	--font-size-normal2:14px;
+	
+	/*보더*/
+	--border-weight : 1px;
+
+	/*페이지 전체 패딩, 마진*/
+	--padding-side-mobile : 30px;
+	--padding-upside-mobile : 20px;
+	--padding-side-tablet : 100px;
+	--padding-upside-tablet : 30px;
+	--padding-side-pc : 150px;
+	--padding-upside-pc : 30px;
+	--margin-side-mobile : 30px;
+	--margin-side-pc : 150px;
+
+	/*헤더 높이*/
+	--header-height : 44px;
+
+	/*컨텐츠 최대 넓이*/
+	--content-min-width-mobile : 380px;
+	--content-max-width-mobile : 768px;
+
+	--content-min-width-tablet : 700px;
+	--content-max-width-tablet : 980px;
+
+	--content-min-width-pc : 980px;
+	--content-max-width-pc : 1160px;
+
+}
+
+/* === Default Style ========================================= */
+body{
+	font-size: var(--font-size-normal);
+}
+
+/* === Text Style ========================================= */
+.text-logo{
+	font-family: 'Jua', sans-serif;
+	font-size:22px;
+	color:#fff;
+}
+
+.text-title1{
+	font-family: 'Jua', sans-serif;
+	font-size: var(--font-size-title1);
+	color:var(--color-text-dark);
+	
+}
+
+.text-title1-h1{
+	font-family: 'NanumSquare';	
+	font-size: var(--font-size-title1);
+	color:var(--color-text-dark);
+	font-weight: bold;
+}
+
+.text-title2{
+	font-size: var(--font-size-title2);
+	color:var(--color-text-dark);
+	font-weight: bold;
+}
+
+.text-title3{
+	font-size: var(--font-size-title3);
+	color:var(--color-text-dark);
+	font-weight: bold;
+}
+
+.text-title-header {
+	font-size: var(--font-size-title2);
+	color: var(--color-text-invert);
+}
+
+.text-normal{
+	font-size: var(--font-size-normal);
+	color:var(--color-text-dark);
+}
+
+.text-normal-header{
+	font-size: var(--font-size-normal);
+	font-weight: bold;
+	color:var(--color-text-invert);
+}
+
+.text-normal-bold {
+	font-size: var(--font-size-normal);
+	color:var(--color-text-dark);
+	font-weight: bold;
+}
+
+/* === Icon Style ============================= */
+
+.icon{
+	display:inline-block;
+	width:20px;
+	height:20px;	
+  	text-indent: -999px;
+  	overflow: hidden;
+  	background-repeat: no-repeat;
+  	background-position: center;
+}
+
+.icon-home{	
+	background: url("../image/icon/icon-home-sm.svg") no-repeat center;	
+}
+
+/* === Deco Style ============================= */
+
+.deco-text{
+	
+}
+
+.deco-text-order{
+	
+}
+
+.deco-text-menu{
+	
+}
+
+.deco-text-category{
+	
+}
+
+/*--------------------custom view--------------------*/
+
+/*회원, 메뉴 프로필*/
+.image-view-round{
+	width:  var(--image-view-diameter);
+	height: var(--image-view-diameter);
+
+	border: solid 1px var(--color-border);
+	object-fit: cover;
+
+	border-radius: 50%;
+	box-sizing: border-box;
+
+	/* item-layout */
+	display: inline-block;
+}
+
+
+
