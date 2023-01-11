@@ -27,8 +27,8 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
-@Controller("adminMenuController")
-@RequestMapping("/admin/menu")
+// @Controller("adminMenuController")
+// @RequestMapping("/admin/menu")
 public class MenuController {
 
 	@Autowired
