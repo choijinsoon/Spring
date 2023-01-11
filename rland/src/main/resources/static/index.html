@@ -18,14 +18,26 @@
     <link href="css/deco.css" type="text/css" rel="stylesheet" >
     <link href="css/index.css" type="text/css" rel="stylesheet">
     <link href="css/utils.css" type="text/css" rel="stylesheet" >  
-    
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <script type="module" src="./components/app.js" defer></script>
-    
+
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script type="text/babel">
+        window.addEventListener("load", function(){
+
+            const root = ReactDOM.createRoot(
+                document.getElementById('root')
+            );
+            root.render(<h1>Hello, world!</h1>);
+
+        })
+    </script>
+
+    <!-- <script type="text/babel" src="./main.js"></script> -->
 </head>
 
-<body id="app">    
-
+<body>
+    <div id="root"></div>    
 </body>
 
 </html>
